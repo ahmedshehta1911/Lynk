@@ -17,6 +17,10 @@ from environ import Env
 env = Env()
 env.read_env()
 
+load_dotenv()
+SECRET_KEY = os.getenv('SECRET_KEY')
+STRIPE_PUBLISHABLE_KEY = os.getenv('STRIPE_PUBLISHABLE_KEY')
+STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY')
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -24,12 +28,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 BASE_URL = "http://127.0.0.1:8000"
 
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-irorx6sf)79=td@%kn^zy3=&2)1%ync&-#&q3cv=mnmbq2&lnt'
+# SECRET_KEY = 'django-insecure-irorx6sf)79=td@%kn^zy3=&2)1%ync&-#&q3cv=mnmbq2&lnt'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -157,8 +160,8 @@ LOGIN_REDIRECT_URL = '/'
 
 LOGOUT_REDIRECT_URL = '/users/login'
 
-STRIPE_SECRET_KEY = env('STRIPE_SECRET_KEY_TEST', default="secret")
-STRIPE_PUBLIC_KEY = env('STRIPE_PUBLIC_KEY_TEST')
+# STRIPE_SECRET_KEY = env('STRIPE_SECRET_KEY_TEST', default="secret")
+# STRIPE_PUBLIC_KEY = env('STRIPE_PUBLIC_KEY_TEST')
 
 
 LEAFLET_CONFIG = {
